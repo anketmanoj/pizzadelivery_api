@@ -17,7 +17,7 @@ class HelloOrderView(generics.GenericAPIView):
 class OrderCreateListView(generics.GenericAPIView):
     serializer_class = OrderCreationSerializer
     queryset = Orders.objects.all()
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get(self, request):
         user = request.user
